@@ -926,9 +926,6 @@ This project is released for educational, learning, and portfolio purposes.
 
 **Aspiring AI Engineer | Machine Learning Engineer | Backend Developer**
 
-📧 Email
-
-ajayajaykichara@gmail.com
 
 🔗 GitHub
 
