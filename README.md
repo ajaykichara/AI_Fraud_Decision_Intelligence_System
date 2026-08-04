@@ -7,6 +7,9 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red?logo=streamlit)
 ![License](https://img.shields.io/badge/License-Educational-green)
 
+![GitHub stars](https://img.shields.io/github/stars/ajaykichara/AI_Fraud_Decision_Intelligence_System?style=social)
+![GitHub forks](https://img.shields.io/github/forks/ajaykichara/AI_Fraud_Decision_Intelligence_System?style=social)
+
 > **An end-to-end Machine Learning Inference System that combines XGBoost, FastAPI, MySQL, and Streamlit with a rule-based Decision Engine to deliver intelligent, risk-aware, and auditable fraud decisions.**
 
 ---
