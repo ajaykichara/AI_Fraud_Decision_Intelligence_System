@@ -15,7 +15,12 @@ Author : Ajay Kichara
 ==========================================================
 """
 
+import os
 import mysql.connector
+from dotenv import load_dotenv
+
+# Load environment variables once
+load_dotenv()
 
 
 class DatabaseConnection:
@@ -28,11 +33,10 @@ class DatabaseConnection:
         Database configuration.
         """
 
-        self.host = "localhost"
-        self.user = "root"
-        self.password = ""
-        # Enter your MySQL password here
-        self.database = "decision_control_system"
+        self.host = os.getenv("DB_HOST")
+        self.user = os.getenv("DB_USER")
+        self.password = os.getenv("DB_PASSWORD")
+        self.database = os.getenv("DB_NAME")
 
     # ======================================================
     # Connect Database

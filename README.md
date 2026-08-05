@@ -12,13 +12,34 @@
 
 ---
 
-# 📌 Executive Summary
+📌 Executive Summary
 
-Financial fraud detection requires more than accurate machine learning predictions. In real-world environments, organizations must evaluate prediction confidence, business risk, historical behavior, and operational policies before taking action.
+Financial fraud detection requires more than a highly accurate machine learning model. In enterprise environments, financial decisions must be accurate, explainable, auditable, and aligned with business governance policies. Automatically approving or rejecting transactions based solely on a model prediction can introduce operational risk and reduce decision transparency.
 
-The **AI Fraud Decision Intelligence System (AFDIS)** extends traditional fraud classification by integrating a machine learning inference pipeline with a rule-based Decision Engine, enabling business-aware fraud decisions instead of relying solely on raw model predictions.
+The AI Fraud Decision Intelligence System (AFDIS) is a governance-driven AI decision support platform that transforms machine learning predictions into intelligent, explainable business decisions. Rather than allowing the machine learning model to make the final decision, the system uses the model as an AI inference engine that provides fraud probability and confidence, while a dedicated Decision Intelligence Layer applies configurable governance rules to determine the appropriate operational action.
 
-The platform combines an **XGBoost classification model**, a **FastAPI REST API**, a **MySQL persistence layer**, and a **Streamlit operational dashboard** into a modular decision support system capable of evaluating transactions, applying configurable business rules, maintaining an audit trail, and supporting manual review workflows.
+To improve fraud detection performance, the platform trains an XGBoost classifier on a highly imbalanced credit card fraud dataset (approximately 172:1 Genuine-to-Fraud ratio) using a preprocessing pipeline with RandomOverSampler, feature engineering, and probability estimation before deploying the model for real-time inference.
+
+Instead of returning only a binary fraud prediction, the Decision Engine evaluates multiple business and operational factors, including:
+
+Machine Learning Prediction Confidence
+Confidence Zones
+Business Risk Score
+Transaction Risk Level
+Transaction Frequency
+Historical Customer Success Rate
+Rule-Based Anomaly Score
+Business Governance Policies
+
+Based on these combined evaluations, the system generates one of three explainable business decisions:
+
+✅ APPROVE
+⛔ REJECT
+👨‍💼 MANUAL REVIEW
+
+Every decision is automatically logged with prediction confidence, risk assessment, governance rationale, anomaly metrics, timestamps, and audit information, while uncertain transactions are routed through a Human-in-the-Loop (HITL) review workflow to ensure regulatory compliance, transparency, and operational accountability.
+
+The platform integrates an XGBoost machine learning model, FastAPI REST APIs, MySQL, and a Streamlit operational dashboard into a modular service-oriented architecture that demonstrates how modern AI systems combine machine learning, software engineering, and business governance to build production-ready decision intelligence solutions rather than standalone predictive models.
 
 ---
 
@@ -818,6 +839,21 @@ pip install -r requirements.txt
 ```
 
 ---
+
+## 📦 Environment Variables
+
+Create a `.env` file in the project root and add the following configuration:
+
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=decision_control_system
+```
+
+The application reads these environment variables to establish the MySQL database connection.
+
+> **Note:** Never commit your actual `.env` file to GitHub. Add `.env` to your `.gitignore` file. Instead, provide a `.env.example` file with placeholder values.
 
 # ▶️ Running the Application
 

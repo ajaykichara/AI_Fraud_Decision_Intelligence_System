@@ -4,9 +4,12 @@ mysql-connector-python
 pandas
 numpy
 scikit-learn
+xgboost
+imbalanced-learn
 joblib
 python-dotenv
 pydantic
 streamlit
 requests
 plotly
+python-dotenv
