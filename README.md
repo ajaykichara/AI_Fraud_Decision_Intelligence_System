@@ -11,36 +11,59 @@
 > **An end-to-end Machine Learning Inference System that combines XGBoost, FastAPI, MySQL, and Streamlit with a rule-based Decision Engine to deliver intelligent, risk-aware, and auditable fraud decisions.**
 
 ---
+# 📌 Executive Summary
 
-📌 Executive Summary
 
-Financial fraud detection requires more than a highly accurate machine learning model. In enterprise environments, financial decisions must be accurate, explainable, auditable, and aligned with business governance policies. Automatically approving or rejecting transactions based solely on a model prediction can introduce operational risk and reduce decision transparency.
 
-The AI Fraud Decision Intelligence System (AFDIS) is a governance-driven AI decision support platform that transforms machine learning predictions into intelligent, explainable business decisions. Rather than allowing the machine learning model to make the final decision, the system uses the model as an AI inference engine that provides fraud probability and confidence, while a dedicated Decision Intelligence Layer applies configurable governance rules to determine the appropriate operational action.
+Financial fraud detection requires more than a highly accurate **machine learning model**. In **enterprise environments**, financial decisions must be **accurate**, **explainable**, **auditable**, and aligned with **business governance policies**. Automatically approving or rejecting transactions based solely on a model prediction can introduce **operational risk** and reduce **decision transparency**.
 
-To improve fraud detection performance, the platform trains an XGBoost classifier on a highly imbalanced credit card fraud dataset (approximately 172:1 Genuine-to-Fraud ratio) using a preprocessing pipeline with RandomOverSampler, feature engineering, and probability estimation before deploying the model for real-time inference.
 
-Instead of returning only a binary fraud prediction, the Decision Engine evaluates multiple business and operational factors, including:
 
-Machine Learning Prediction Confidence
-Confidence Zones
-Business Risk Score
-Transaction Risk Level
-Transaction Frequency
-Historical Customer Success Rate
-Rule-Based Anomaly Score
-Business Governance Policies
+The **AI Fraud Decision Intelligence System (AFDIS)** is a **governance-driven AI decision support platform** that transforms **machine learning predictions** into **intelligent, explainable business decisions**. Rather than allowing the machine learning model to make the final decision, the system uses the model as an **AI inference engine** that provides **fraud probability** and **confidence**, while a dedicated **Decision Intelligence Layer** applies configurable **governance rules** to determine the appropriate operational action.
 
-Based on these combined evaluations, the system generates one of three explainable business decisions:
 
-✅ APPROVE
-⛔ REJECT
-👨‍💼 MANUAL REVIEW
+To improve fraud detection performance, the platform trains an **XGBoost classifier** on a **highly imbalanced credit card fraud dataset (approximately 172:1 Genuine-to-Fraud ratio)** using a preprocessing pipeline with **RandomOverSampler**, **time-based feature engineering**, and **probability estimation** before deploying the model for **real-time inference**.
 
-Every decision is automatically logged with prediction confidence, risk assessment, governance rationale, anomaly metrics, timestamps, and audit information, while uncertain transactions are routed through a Human-in-the-Loop (HITL) review workflow to ensure regulatory compliance, transparency, and operational accountability.
 
-The platform integrates an XGBoost machine learning model, FastAPI REST APIs, MySQL, and a Streamlit operational dashboard into a modular service-oriented architecture that demonstrates how modern AI systems combine machine learning, software engineering, and business governance to build production-ready Decision Intelligence solutions rather than standalone predictive models.
+Instead of returning only a binary fraud prediction, the **Decision Engine** evaluates multiple **business and operational factors**, including:
 
+
+
+- **Machine Learning Prediction Confidence**
+
+- **Confidence Zones**
+
+- **Business Risk Score**
+
+- **Transaction Risk Level**
+
+- **Transaction Frequency**
+
+- **Historical Customer Success Rate**
+
+- **Rule-Based Anomaly Score**
+
+- **Business Governance Policies**
+
+
+
+Based on these combined evaluations, the system generates one of three **explainable business decisions**:
+
+
+
+- ✅ **APPROVE**
+
+- ⛔ **REJECT**
+
+- 👨‍💼 **MANUAL REVIEW**
+
+
+
+Every decision is automatically logged with **prediction confidence**, **risk assessment**, **governance rationale**, **anomaly metrics**, **timestamps**, and **audit information**, while uncertain transactions are routed through a **Human-in-the-Loop (HITL) review workflow** to ensure **regulatory compliance**, **transparency**, and **operational accountability**.
+
+
+
+The platform integrates an **XGBoost machine learning model**, **FastAPI REST APIs**, **MySQL**, and a **Streamlit operational dashboard** into a **modular service-oriented architecture** that demonstrates how modern **AI systems** combine **machine learning**, **software engineering**, and **business governance** to build **production-ready Decision Intelligence solutions** rather than standalone predictive models.
 ---
 
 # 📖 Overview
