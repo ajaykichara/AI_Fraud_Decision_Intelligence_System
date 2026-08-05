@@ -1,7 +1,6 @@
 #   the mount in it  is  dollar not  rupee 
 import  pandas as  pd  
-import seaborn as sns 
-import matplotlib.pyplot as plt
+
 df =  pd.read_csv("data/final_credit_fraud_dataset.csv")
 # ==========================================================
 # DATASET ANALYSIS FOR DECISION ENGINE

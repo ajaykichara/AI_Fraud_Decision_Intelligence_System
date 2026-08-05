@@ -39,7 +39,7 @@ Based on these combined evaluations, the system generates one of three explainab
 
 Every decision is automatically logged with prediction confidence, risk assessment, governance rationale, anomaly metrics, timestamps, and audit information, while uncertain transactions are routed through a Human-in-the-Loop (HITL) review workflow to ensure regulatory compliance, transparency, and operational accountability.
 
-The platform integrates an XGBoost machine learning model, FastAPI REST APIs, MySQL, and a Streamlit operational dashboard into a modular service-oriented architecture that demonstrates how modern AI systems combine machine learning, software engineering, and business governance to build production-ready decision intelligence solutions rather than standalone predictive models.
+The platform integrates an XGBoost machine learning model, FastAPI REST APIs, MySQL, and a Streamlit operational dashboard into a modular service-oriented architecture that demonstrates how modern AI systems combine machine learning, software engineering, and business governance to build production-ready Decision Intelligence solutions rather than standalone predictive models.
 
 ---
 
@@ -142,17 +142,21 @@ This layered architecture transforms raw machine learning outputs into transpare
 
 # 📂 Dataset
 
-The project is built using a credit card fraud detection dataset containing customer information, merchant details, transaction attributes, and engineered features for binary fraud classification.
+The project is built using a credit card fraud detection dataset containing 1,296,675 transactions and 19 features, including customer information, merchant details, transaction attributes, and engineered features for binary fraud classification. The dataset is highly imbalanced, containing 1,289,169 legitimate transactions and 7,506 fraudulent transactions (approximately 172:1 class ratio).
 
 ### Dataset Characteristics
 
+- 1,296,675 Total Transactions
+- 19 Features
 - Binary Classification Problem
-- Highly Imbalanced Dataset
+- 1,289,169 Legitimate Transactions
+- 7,506 Fraudulent Transactions
+- Approximately 172:1 Class Imbalance
+- No Missing Values
 - Customer Information
 - Merchant Information
 - Transaction Information
 - Engineered Features
-- Fraud Labels
 
 The dataset is transformed into a feature-rich machine learning dataset before model training and real-time inference.
 
@@ -312,6 +316,10 @@ The dataset is transformed into a feature-rich machine learning dataset before m
 - End-to-End Machine Learning Inference Pipeline
 - Rule-Based Decision Intelligence
 - Confidence-Based Decision Making
+- Historical Behavior Analysis
+- Transaction Frequency Analysis
+- Class Imbalance Handling (172:1)
+- Explainable Decision Intelligence
 - Risk Assessment Engine
 - Modular Backend Architecture
 - RESTful API Integration
@@ -372,7 +380,7 @@ Additional features are engineered to improve predictive performance.
 The training pipeline performs:
 
 - Train-Test Split
-- Minority Class Oversampling using RandomOverSampler
+- Minority Class Oversampling using **RandomOverSampler** to address the **172:1 class imbalance**
 - One-Hot Encoding of categorical variables
 - Column-wise preprocessing using ColumnTransformer
 - Unified preprocessing and training using a Scikit-learn Pipeline
@@ -419,12 +427,15 @@ During prediction:
 
 ## 7. Decision Intelligence
 
-Instead of returning raw predictions, the system evaluates:
+Instead of returning raw predictions, the Decision Intelligence Layer evaluates:
 
 - Prediction Confidence
 - Confidence Zone
 - Transaction Risk Score
-- Business Rules
+- Transaction Frequency (Last 24 Hours)
+- Historical Customer Success Rate
+- Rule-Based Anomaly Score
+- Business Governance Rules
 
 The final business decision is:
 
@@ -701,11 +712,14 @@ Each module has a single, well-defined responsibility, making the system easier 
 - Binary Classification
 - Feature Engineering
 - Data Preprocessing
-- Class Imbalance Handling
+- Class Imbalance Handling using RandomOverSampler
 - Probability Estimation
 - Model Serialization
 - Machine Learning Inference
 - Business Rule Evaluation
+- Historical Behavior Analysis
+- Transaction Frequency Analysis
+- Rule-Based Anomaly Detection
 - Confidence Calibration
 - Risk Assessment
 - Human-in-the-Loop Decision Making
@@ -812,8 +826,7 @@ This project demonstrates practical experience in:
 - Building operational dashboards
 - Working with modular software architecture
 - Applying object-oriented programming principles
-- Handling class imbalance in machine learning
-- Building reusable service components
+- Handling highly imbalanced fraud datasets (172:1) using RandomOverSampler
 - Deploying serialized machine learning models
 
 ---
