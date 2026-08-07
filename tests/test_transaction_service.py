@@ -1,11 +1,11 @@
-from services.transaction_service import TransactionService
+from backend.services.transaction_service import TransactionService
 
 service = TransactionService()
 
 print("Transaction Service Loaded Successfully.")
 
 
-from services.transaction_service import TransactionService
+from backend.services.transaction_service import TransactionService
 
 service = TransactionService()
 

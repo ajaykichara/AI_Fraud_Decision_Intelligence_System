@@ -235,7 +235,7 @@ if page == "🏠 Dashboard":
       df = pd.DataFrame(history)
 
       styled_df = (
-        df.tail(5)
+        df.head(8)
         .style
         .set_properties(
              **{

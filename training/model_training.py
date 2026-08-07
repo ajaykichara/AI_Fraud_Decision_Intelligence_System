@@ -6,8 +6,6 @@ import pandas as pd
 # ==========================
 df = pd.read_csv("data/final_credit_fraud_dataset.csv")
 
-print("ganeshayaah numh")
-
 # ==========================
 # Libraries
 # ==========================
@@ -151,7 +149,6 @@ print("Model saved successfully!")
 
 
 # model scave  this   data  
-# ganeshayaah numh
 # ==================================================
 # Training data before oversampling:
 # is_fraud

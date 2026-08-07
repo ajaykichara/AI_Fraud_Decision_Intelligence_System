@@ -1,4 +1,4 @@
-from database.database_connection import DatabaseConnection
+from backend.database.database_connection import DatabaseConnection
 
 db = DatabaseConnection()
 

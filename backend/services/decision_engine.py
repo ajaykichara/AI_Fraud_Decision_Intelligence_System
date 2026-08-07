@@ -10,7 +10,7 @@ Applies business rules after the ML model prediction.
 Workflow:
 Transaction
       ↓
-Random Forest Prediction
+xgboost classifier Prediction
       ↓
 Decision Engine
       ↓
@@ -77,13 +77,10 @@ class DecisionEngine:
     # ==========================================================
 
     def calculate_risk_score(
-
         self,
-
         transaction_amount: float,
         is_night_transaction: bool,
         high_amount_transaction: bool
-
     ) -> int:
         """
         Calculates overall transaction risk score.
@@ -145,28 +142,20 @@ class DecisionEngine:
     # ==========================================================
 
     def make_decision(
-
         self,
-
         model_prediction: int,
         probability: float,
         transaction_amount: float,
         is_night_transaction: bool,
         high_amount_transaction: bool
-
     ) -> Dict:
-        """
-        Returns the final business decision.
-        """
 
         confidence_zone = self.get_confidence_zone(probability)
 
         risk_score = self.calculate_risk_score(
-
             transaction_amount,
             is_night_transaction,
             high_amount_transaction
-
         )
 
         risk_level = self.get_risk_level(risk_score)
@@ -180,19 +169,16 @@ class DecisionEngine:
             if confidence_zone == "HIGH":
 
                 final_decision = "APPROVE"
-
                 reason = "Model is highly confident that the transaction is genuine."
 
             elif confidence_zone == "MEDIUM":
 
                 final_decision = "APPROVE"
-
                 reason = "Transaction appears genuine with moderate confidence."
 
             else:
 
                 final_decision = "MANUAL_REVIEW"
-
                 reason = "Low confidence genuine prediction. Manual verification recommended."
 
         # ======================================================
@@ -204,41 +190,29 @@ class DecisionEngine:
             if confidence_zone == "HIGH" and risk_level == "HIGH":
 
                 final_decision = "REJECT"
-
                 reason = "High confidence fraud prediction with high business risk."
 
             elif confidence_zone == "HIGH" and risk_level == "MEDIUM":
 
                 final_decision = "MANUAL_REVIEW"
-
                 reason = "Fraud predicted with high confidence but medium business risk."
 
             elif confidence_zone == "MEDIUM":
 
                 final_decision = "MANUAL_REVIEW"
-
                 reason = "Fraud prediction requires analyst verification."
 
             else:
 
                 final_decision = "MANUAL_REVIEW"
-
                 reason = "Low confidence fraud prediction."
 
         return {
-
             "model_prediction": int(model_prediction),
-
             "confidence_score": round(probability, 4),
-
             "confidence_zone": confidence_zone,
-
             "risk_score": risk_score,
-
             "risk_level": risk_level,
-
             "final_decision": final_decision,
-
             "override_reason": reason
-
         }

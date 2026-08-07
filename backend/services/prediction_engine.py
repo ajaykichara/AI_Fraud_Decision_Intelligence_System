@@ -93,7 +93,7 @@ class PredictionEngine:
             prediction = int(
                      self.model.predict(input_data)[0]
             )
-
+            
             probabilities = self.model.predict_proba(input_data)[0]
 
             probability = float(

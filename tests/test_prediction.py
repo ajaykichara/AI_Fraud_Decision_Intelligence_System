@@ -1,4 +1,4 @@
-from services.prediction_engine import PredictionEngine
+from backend.services.prediction_engine import PredictionEngine
 
 # Create Prediction Engine object
 engine = PredictionEngine()
